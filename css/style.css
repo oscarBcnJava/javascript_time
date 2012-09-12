@@ -62,7 +62,8 @@ h1{
 	}	
 #etiquetas {
 		margin-top:80px;
-		margin-left:520px;
+		width:270px;
+		margin:auto;
 	}
 #etiquetas li {
 		text-transform: uppercase;
@@ -86,7 +87,8 @@ h1{
 		text-align:center;
 	}
 #centra {
-	margin-left:505px;
+	width: 250px;
+	margin:auto;
 }
 #centra li{	
 		display:inline;		
