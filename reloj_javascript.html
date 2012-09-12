@@ -30,6 +30,7 @@
 		}
 		if (horaMax===24 && dim){
 			hora +=12;
+			if (hora === 24) hora=0;
 			dim=false;			
 		}
 		if (hora>9) {
@@ -120,6 +121,7 @@
 		document.getElementById("hora").innerHTML = (time.getHours()<10)?"0"+time.getHours():time.getHours();
 		document.getElementById("minutos").innerHTML = (time.getMinutes()<10)?"0"+time.getMinutes():time.getMinutes();
 		document.getElementById("segundos").innerHTML = (time.getSeconds()<10)?"0"+time.getSeconds():time.getSeconds();
+		dim= false;
 	}
 	
 	/*
