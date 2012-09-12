@@ -1,10 +1,11 @@
 Javascript_time
 ---------------
 
+-Reloj formato 24horas y 12horas
+-Ajuste hora local
+-Ajuste manual
 
--Archivo html:
-reloj_javascript.html
--Archivo css:
-css/style.css
-
-Mediante uso de javascript, creación de reloj. 
+Archivos:
+html: reloj_javascript.html
+css:  css/style.css
+javascript:js/js_reloj.js
