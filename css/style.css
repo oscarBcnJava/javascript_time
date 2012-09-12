@@ -40,7 +40,7 @@ h1{
 		padding-bottom:10px;		
 		background-color:rgba(192,192,192,1);
 		margin-top:5px;
-		margin-bottom:30px;
+		margin-bottom:5px;
 	}
 #hora,#minutos,#segundos{
 		border:1px solid;
@@ -85,8 +85,10 @@ h1{
 		background-color: rgb(255,255,224);
 		text-align:center;
 	}
-	
-#centra il{	
+#centra {
+	margin-left:505px;
+}
+#centra li{	
 		display:inline;		
 		
 	}	
@@ -94,3 +96,8 @@ h1{
 		width:30px;
 				
 	}
+#centra button:hover{
+background-color:white;
+color:black;
+
+}
