@@ -12,7 +12,7 @@ var hora12=false;
 		minutos = parseInt(document.getElementById("minutos").innerHTML,10);
 	    segundos = parseInt(document.getElementById("segundos").innerHTML,10); 			
 		segundos += 1;
-		if (horaMax===12 && hora>12) {			
+		if (horaMax===12 && hora>=12) {			
 			hora = hora-12;
 			dim=true;			
 		}
