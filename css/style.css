@@ -8,10 +8,13 @@ body{
 div,li,button{
 		 border-radius:7px;
 		-webkit-border-radius: 7px;   
-		-moz-border-radius: 7px;  
-		/*soporte explorer*/
-		 behavior: url(ie-css3.htc);
-	}	
+		-moz-border-radius: 7px;
+	}
+.redondeado{
+/*soporte explorer*/
+border-radius:7px;
+behavior: url(ie-css3.htc);
+}	
 button {
 		width:100px;
 		border:1px solid rgb(0,100,0);
