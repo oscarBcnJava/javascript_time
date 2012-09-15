@@ -10,13 +10,8 @@ var getElem = function(element){
 var setElem = function(element,value){	
 	document.getElementById(element).innerHTML = value;	
 }
-<<<<<<< HEAD
-/*
- * Controla si estamos en modo 12h o 24h y limita la cantidad de horas máximas y el cambio display AM PM y 24h
- *
- */
-=======
->>>>>>> fe6b1a61a8281a55ec52d3ddb680cb0f5c6673af
+
+/* Controla si estamos en modo 12h o 24h y limita la cantidad de horas máximas y el cambio display AM PM y 24h */
 function controlAM_PM(){
 	if (horaMax === 12 && hora > 12) {
 		hora = hora - 12;
@@ -32,11 +27,8 @@ function controlAM_PM(){
 	else if (horaMax === 24) setElem('tipoHora','24h');	
 	
 }
-<<<<<<< HEAD
 
-/*visualización*/
-=======
->>>>>>> fe6b1a61a8281a55ec52d3ddb680cb0f5c6673af
+/* actualización visual reloj*/
 function display() {
 	hora12 ? horaMax = 12 : horaMax = 24;
 	hora = parseInt(getElem('hora'), 10);	
