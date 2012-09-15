@@ -7,20 +7,11 @@ var getElem = function(element){
 	return document.getElementById(element).innerHTML;	
 }
 //asigna valor a elemento en DOM
-var setElem = function(element,value){
+var setElem = function(element,value){	
 	document.getElementById(element).innerHTML = value;	
 }
-
-function display() {
-	hora12 ? horaMax = 12 : horaMax = 24;
-	hora = parseInt(getElem('hora'), 10);
-	if (horaMax === 12 && !dim) setElem('tipoHora','AM');
-	else if (horaMax === 12 && dim) setElem('tipoHora','PM');
-	else if (horaMax === 24) setElem('tipoHora','24h');
-	minutos = parseInt(getElem('minutos'), 10);
-	segundos = parseInt(getElem('segundos'), 10);
-	segundos += 1;
-	if (horaMax === 12 && hora >= 12) {
+function controlAM_PM(){
+	if (horaMax === 12 && hora > 12) {
 		hora = hora - 12;
 		dim = true;
 	}
@@ -29,6 +20,19 @@ function display() {
 		if (hora === 24) hora = 0;
 		dim = false;
 	}
+	if (horaMax === 12 && !dim) setElem('tipoHora','AM');
+	else if (horaMax === 12 && dim) setElem('tipoHora','PM');
+	else if (horaMax === 24) setElem('tipoHora','24h');	
+	
+}
+function display() {
+	hora12 ? horaMax = 12 : horaMax = 24;
+	hora = parseInt(getElem('hora'), 10);	
+	minutos = parseInt(getElem('minutos'), 10);
+	segundos = parseInt(getElem('segundos'), 10);
+	controlAM_PM();
+	/*ciclo*/
+	segundos += 1;
 	if (hora > 9) {
 		hora = hora.toString();
 	} else hora = "0" + hora.toString();
@@ -40,19 +44,23 @@ function display() {
 			minutos = 0;
 			hora++;
 			if (hora === 24) hora = 0;
-			if (hora > 9) {
-				hora = hora.toString();
-			} else hora = "0" + hora.toString();
+			/*de 0 a 9 añadimos un cero para crear dos cifras en las horas*/
+			if (hora < 10) {
+				hora = "0" + hora;
+			}
 			setElem('hora',hora);
 		}
-		if (minutos > 9) {
-			minutos = minutos.toString();
-		} else minutos = "0" + minutos.toString();
+		/*de 0 a 9 añadimos un cero para crear dos cifras en los minutos*/
+		if (minutos < 10) {
+			minutos = "0" + minutos;
+		}
 		setElem('minutos',minutos);
 	}
-	if (segundos > 9) {
-		segundos = segundos.toString();
-	} else segundos = "0" + segundos.toString();
+	/*de 0 a 9 añadimos un cero para crear dos cifras en segundos*/
+	if (segundos < 10) {
+		segundos = "0" + segundos;
+	}
+	
         setElem('segundos',segundos);
 }
 
@@ -64,9 +72,11 @@ hora,minutos y segundos a cero
 */
 function reset(){
 	hora12=false;
-	setElem('hora','00');
-	setElem('minutos','00');
-	setElem('segundos','00');
+	var time = ['hora','minutos','segundos'];
+	for each (var item in time){
+		setElem(item,'00');
+	}
+	
 }
 
 /*
@@ -79,10 +89,10 @@ function ajuste(incHora,incMin){
 	hora = parseInt(getElem('hora'),10);
 	hora = hora + incHora;
 	if (horaMax===12 && hora>12) {			
-		hora=0;
+		hora=1;
 		dim=!dim;
 	}
-	if (horaMax===12 && hora<0) {
+	if (horaMax===12 && hora<1) {
 		hora=12;
 		dim=!dim;
 	}
@@ -131,8 +141,10 @@ function tipoHora(){
 		setElem('12h','24h');
 	}
 	else if (tipoHora==="24h") {
+		controlAM_PM();
 		hora12=false;
 		setElem('12h','12h');
+		
 	}
 }
 
